@@ -17,7 +17,6 @@ module Certmeister
       end
 
       def store(cn, pem)
-        now = Time.now
         @db.put_item(table_name: @table_name, item: {cn: cn, pem: pem})
       end
 
