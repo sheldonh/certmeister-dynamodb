@@ -9,5 +9,5 @@ The tests expect to be run against a [DynamoDB Local](http://docs.aws.amazon.com
 The instance can be started as follows:
 
 ```
-java -inMemory -Djava.library.path=. -jar DynamoDBLocal.jar
+java -Djava.library.path=. -jar DynamoDBLocal.jar -inMemory
 ```
