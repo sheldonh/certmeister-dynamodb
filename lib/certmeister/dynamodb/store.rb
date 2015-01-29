@@ -64,7 +64,7 @@ module Certmeister
             # }
           )
           while @db.describe_table(table_name: @table_name).table.table_status == "CREATING"
-            $stderr.puts "Waiting for table #{table_name} to be created"
+            $stderr.puts "Waiting for table #{@table_name} to be created"
             sleep 1
           end
         rescue Aws::DynamoDB::Errors::ResourceInUseException
