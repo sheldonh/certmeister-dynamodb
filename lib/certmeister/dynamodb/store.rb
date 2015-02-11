@@ -7,6 +7,8 @@ module Certmeister
 
     class Store
 
+      include Enumerable
+
       def initialize(table_name, options = {}, provision = {})
         @table_name = table_name
         @db = Aws::DynamoDB::Client.new(options)
@@ -29,6 +31,12 @@ module Certmeister
       def remove(cn)
         deleted = @db.delete_item(table_name: @table_name, key: {cn: cn}, return_values: "ALL_OLD").attributes
         !!deleted
+      end
+
+      def each
+        @db.scan(table_name: @table_name).items.each do |item|
+          yield item["cn"], item["pem"]
+        end
       end
 
       def health_check
