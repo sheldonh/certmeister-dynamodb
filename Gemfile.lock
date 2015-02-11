@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    certmeister-dynamodb (0.0.3)
+    certmeister-dynamodb (0.1.0)
       aws-sdk-core (~> 2.0)
       certmeister (~> 2.0)
 
