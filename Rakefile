@@ -1,5 +1,5 @@
 require "rspec/core/rake_task"
-require "certmeister/version"
+require "certmeister/dynamodb/version"
 
 desc 'Build gem into the pkg directory'
 task :build => :spec do
@@ -13,9 +13,9 @@ end
 
 desc 'Tags version, pushes to remote, and pushes gem'
 task :release => :build do
-  sh 'git', 'tag', '-m', "Released v#{Certmeister::VERSION}", "v#{Certmeister::VERSION}"
+  sh 'git', 'tag', '-m', "Released v#{Certmeister::DynamoDB::VERSION}", "v#{Certmeister::DynamoDB::VERSION}"
   sh "git push origin master"
-  sh "git push origin v#{Certmeister::VERSION}"
+  sh "git push origin v#{Certmeister::DynamoDB::VERSION}"
   sh "ls pkg/*.gem | xargs -n 1 gem push"
 end
 
