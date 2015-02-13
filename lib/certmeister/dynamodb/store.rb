@@ -51,6 +51,8 @@ module Certmeister
 
       def do_provisioning(provisioned_throughput)
         begin
+          @db.describe_table(table_name: @table_name)
+        rescue Aws::DynamoDB::Errors::ResourceNotFoundException
           @db.create_table(
             table_name: @table_name,
             attribute_definitions: [
@@ -75,8 +77,6 @@ module Certmeister
             $stderr.puts "Waiting for table #{@table_name} to be created"
             sleep 1
           end
-        rescue Aws::DynamoDB::Errors::ResourceInUseException
-          # Already exists
         end
       end
 
