@@ -2,24 +2,19 @@ PATH
   remote: .
   specs:
     certmeister-dynamodb (0.1.1)
-      aws-sdk-core (~> 2.0)
+      aws-sdk-core (~> 2.1)
       certmeister (~> 2.0)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    aws-sdk-core (2.0.23)
-      builder (~> 3.0)
+    aws-sdk-core (2.1.20)
       jmespath (~> 1.0)
-      multi_json (~> 1.0)
-      multi_xml (~> 0.5)
-    builder (3.2.2)
-    certmeister (2.0.0)
+    certmeister (2.1.0)
     diff-lcs (1.2.5)
     jmespath (1.0.2)
       multi_json (~> 1.0)
-    multi_json (1.10.1)
-    multi_xml (0.5.5)
+    multi_json (1.11.2)
     rake (0.9.6)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
@@ -42,3 +37,6 @@ DEPENDENCIES
   certmeister-dynamodb!
   rake (~> 0)
   rspec (~> 3.1)
+
+BUNDLED WITH
+   1.10.6

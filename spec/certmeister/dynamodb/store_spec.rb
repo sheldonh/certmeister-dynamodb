@@ -11,10 +11,14 @@ describe Certmeister::DynamoDB::Store do
     include Certmeister::Test::MemoryStoreInterface
   end
 
+  let(:ddb_options) do
+    {endpoint: 'http://127.0.0.1:8000', credentials: Aws::Credentials.new('key_id', 'secret_key')}
+  end
+
   subject do
     Certmeister::DynamoDB::Store.new(
       TABLE_NAME,
-      {region: 'us-east-1', endpoint: ENV['DYNAMODB_ENDPOINT'] || 'http://localhost:8000' },
+      ddb_options,
       {read_capacity_units: 10, write_capacity_units: 5}
     )
   end
@@ -24,7 +28,6 @@ describe Certmeister::DynamoDB::Store do
   private
 
   def dynamodb_cleanup
-    ddb_options = {region: 'us-east-1', endpoint: ENV['DYNAMODB_ENDPOINT'] || 'http://localhost:8000'}
     db = Aws::DynamoDB::Client.new(ddb_options)
     begin
       db.delete_table(table_name: TABLE_NAME)
