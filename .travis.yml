@@ -8,3 +8,6 @@ install:
   - wget -O - http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest.tar.gz | tar -C /tmp/dynamodb -xzf -
 before_script:
   - java -Djava.library.path=/tmp/dynamodb/DynamoDBLocal_lib -jar /tmp/dynamodb/DynamoDBLocal.jar -inMemory &
+script:
+  - bundle
+  - bundle exec rake
