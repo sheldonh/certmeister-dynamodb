@@ -12,7 +12,7 @@ describe Certmeister::DynamoDB::Store do
   end
 
   let(:ddb_options) do
-    {endpoint: 'http://127.0.0.1:8000', credentials: Aws::Credentials.new('key_id', 'secret_key')}
+    {endpoint: 'http://127.0.0.1:8000', region: 'us-east-1', credentials: Aws::Credentials.new('key_id', 'secret_key')}
   end
 
   subject do
