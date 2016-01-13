@@ -23,3 +23,5 @@ The instance can be started as follows:
 ```
 java -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -inMemory -sharedDb
 ```
+
+The Travis CI tests use this same approach.
